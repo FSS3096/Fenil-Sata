@@ -44,6 +44,9 @@ export function HeroSection() {
             </p>
             <div className="hero-actions">
               <MagneticButton href="#work">View work</MagneticButton>
+              <MagneticButton href={links.resume} target="_blank" variant="ghost">
+                Resume
+              </MagneticButton>
               <MagneticButton href="#autopsy" variant="ghost">
                 Read The Autopsy
               </MagneticButton>

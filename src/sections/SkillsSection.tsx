@@ -14,7 +14,7 @@ export function SkillsSection() {
   return (
     <section className="section skills-section" id="skills">
       <SectionHeader
-        index="03"
+        index="04"
         label="Skills Galaxy"
         title="A product brain with enough technical gravity to ship."
         copy="The skill system is treated like a galaxy: product strategy at the center, engineering and tools in orbit, leadership as the force that keeps teams moving."

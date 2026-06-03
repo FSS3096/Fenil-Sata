@@ -7,7 +7,7 @@ export function WinsSection() {
   return (
     <section className="section wins-section" id="wins">
       <SectionHeader
-        index="06"
+        index="07"
         label="Wins"
         title="Competition pressure, public thinking, and proof of execution."
       />

@@ -9,7 +9,7 @@ export function AutopsySection() {
       <div className="autopsy-grid">
         <div>
           <SectionHeader
-            index="05"
+            index="06"
             label="The Autopsy"
             title="Every week, I pick a company that failed and cut it open."
             copy="Not to mock it. To understand it. Because the best product lessons are not in launches. They are in autopsies."

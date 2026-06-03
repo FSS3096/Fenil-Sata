@@ -12,6 +12,8 @@ type SharedProps = {
 
 type MagneticAnchorProps = SharedProps & {
   href: string;
+  target?: string;
+  rel?: string;
   onClick?: MouseEventHandler<HTMLAnchorElement>;
 };
 
@@ -67,6 +69,8 @@ export function MagneticButton({
 
   if ("href" in props && props.href) {
     const external = props.href.startsWith("http");
+    const target = props.target ?? (external ? "_blank" : undefined);
+    const rel = props.rel ?? (target === "_blank" ? "noreferrer" : undefined);
 
     return (
       <motion.a
@@ -78,8 +82,8 @@ export function MagneticButton({
         onMouseMove={(event) => move(anchorRef.current, event)}
         onMouseLeave={() => reset(anchorRef.current)}
         onClick={props.onClick}
-        target={external ? "_blank" : undefined}
-        rel={external ? "noreferrer" : undefined}
+        target={target}
+        rel={rel}
       >
         {content}
       </motion.a>

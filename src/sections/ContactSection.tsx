@@ -45,7 +45,7 @@ export function ContactSection() {
       <div className="contact-grid">
         <div>
           <SectionHeader
-            index="07"
+            index="08"
             label="Contact"
             title="If something I built or wrote made you think, let's talk."
             copy="Founder-office roles, product internships, research collaborations, and sharp product conversations are welcome."

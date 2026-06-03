@@ -35,6 +35,7 @@ export const portraits = {
 export const links = {
   email: "fenilsata@gmail.com",
   phone: "+91 91573 83155",
+  resume: "/Fenil_Sata.pdf",
   linkedin: "https://linkedin.com/in/fenil-sata",
   autopsy: "https://www.linkedin.com/posts/fenil-sata_theautopsy-productmanagement-arthakram-share-7452239838319239168-A-2a/?utm_source=share&utm_medium=member_desktop&rcm=ACoAAFuGLQ4BY9jKQdJbtxu3WjIkjjJQ3_mN9u8",
   github: "https://github.com/FSS3096",
@@ -87,6 +88,22 @@ export const timeline = [
     meta: "6+ national challenges"
   }
 ];
+
+export const porData = {
+  title: "Product & Consulting Club",
+  organization: "Arthakram",
+  contributions: [
+    "Presented Minimalist & Blinkit teardowns to club members, applying competitive analysis and PM prioritization frameworks to real product decisions.",
+    "Applied structured consulting methodologies — market sizing, competitive benchmarking, and urgency-impact prioritization — to live case studies."
+  ],
+  tags: [
+    "Product Teardowns",
+    "Competitive Analysis",
+    "PM Frameworks",
+    "Consulting",
+    "Case Studies"
+  ]
+};
 
 export const skills = [
   { label: "Product Strategy", group: "Product", strength: 0.95 },
@@ -164,6 +181,5 @@ export const wins = [
   "Mind the Product - Finalist",
   "Productathon - Finalist",
   "Global Circuit Hackathon - 3rd Prize",
-  "BITS Pilani Consultathon 5.0",
-  "Arthakram Product and Consulting Club"
+  "BITS Pilani Consultathon 5.0"
 ];

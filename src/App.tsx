@@ -1,6 +1,7 @@
 import { useRef } from "react";
 import { AboutSection } from "./sections/AboutSection";
 import { AutopsySection } from "./sections/AutopsySection";
+import { PORSection } from "./sections/PORSection";
 import { ContactSection } from "./sections/ContactSection";
 import { HeroSection } from "./sections/HeroSection";
 import { ProofWall } from "./sections/ProofWall";
@@ -21,6 +22,7 @@ export default function App() {
       <HeroSection />
       <ProofWall />
       <AboutSection />
+      <PORSection />
       <SkillsSection />
       <ProjectsSection />
       <AutopsySection />
