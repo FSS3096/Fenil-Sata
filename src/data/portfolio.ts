@@ -7,6 +7,7 @@ import secondaryJpg from "../assets/portraits/fenil-secondary.jpg";
 import atmosphericAvif from "../assets/portraits/fenil-atmospheric.avif";
 import atmosphericWebp from "../assets/portraits/fenil-atmospheric.webp";
 import atmosphericJpg from "../assets/portraits/fenil-atmospheric.jpg";
+import startupInfoImg from "../assets/projects/startup-info.png";
 
 export type ImageSet = {
   avif: string;
@@ -134,7 +135,8 @@ export const projects = [
     tags: ["TypeScript", "Tailwind CSS", "Vercel", "Product Discovery"],
     actionLabel: "Live",
     liveUrl: links.startupInfo,
-    repoUrl: ""
+    repoUrl: "",
+    image: startupInfoImg
   },
   {
     title: "Company Breakdown - Minimalist",

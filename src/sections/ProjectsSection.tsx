@@ -17,7 +17,10 @@ export function ProjectsSection() {
       <div className="project-stack">
         {projects.map((project, index) => (
           <TiltCard className="project-tilt" key={project.title}>
-            <GlassPanel className="project-card" data-gsap-reveal>
+            <GlassPanel
+              className={`project-card ${project.image ? "project-has-image" : ""}`}
+              data-gsap-reveal
+            >
               <div className="project-index">0{index + 1}</div>
               <div>
                 <p className="project-eyebrow">
@@ -52,6 +55,11 @@ export function ProjectsSection() {
                   </MagneticButton>
                 ) : null}
               </div>
+              {project.image && (
+                <div className="project-image-container">
+                  <img src={project.image} alt={project.title} />
+                </div>
+              )}
             </GlassPanel>
           </TiltCard>
         ))}

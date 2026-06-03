@@ -869,6 +869,39 @@ img {
   white-space: nowrap;
 }
 
+.project-card.project-has-image {
+  grid-template-columns: 84px minmax(0, 1.2fr) minmax(280px, 0.8fr);
+  align-items: center;
+}
+
+.project-image-container {
+  grid-column: 3;
+  grid-row: 1 / span 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-left: 14px;
+}
+
+.project-image-container img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 
+    0 15px 35px rgba(0, 0, 0, 0.4),
+    0 0 20px rgba(114, 242, 255, 0.05);
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-image-container img:hover {
+  transform: scale(1.025) translateY(-2px);
+  border-color: rgba(114, 242, 255, 0.3);
+  box-shadow: 
+    0 20px 45px rgba(0, 0, 0, 0.5),
+    0 0 30px rgba(114, 242, 255, 0.12);
+}
+
 .autopsy-section {
   width: 100%;
   max-width: none;
@@ -1128,6 +1161,18 @@ img {
   .section {
     padding: 80px 0;
   }
+
+  .project-card.project-has-image {
+    grid-template-columns: 84px minmax(0, 1fr);
+  }
+
+  .project-image-container {
+    grid-column: 2;
+    grid-row: auto;
+    padding-left: 0;
+    margin-top: 16px;
+    max-width: 500px;
+  }
 }
 
 @media (max-width: 760px) {
@@ -1218,8 +1263,20 @@ img {
   }
 
   .project-tags,
-  .project-actions {
+  .project-actions,
+  .project-image-container {
     grid-column: 1;
+  }
+
+  .project-card.project-has-image {
+    grid-template-columns: 1fr;
+  }
+
+  .project-image-container {
+    grid-row: auto;
+    padding-left: 0;
+    margin-top: 12px;
+    max-width: 100%;
   }
 
   .contact-form {
