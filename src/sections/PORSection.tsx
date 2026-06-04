@@ -41,10 +41,6 @@ export function PORSection() {
 
         <div className="por-visual">
           <ArthakramScene />
-          <div className="por-visual-label">
-            <span className="por-visual-dot" aria-hidden />
-            Interactive 3D
-          </div>
         </div>
       </div>
     </section>
