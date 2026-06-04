@@ -1,9 +1,7 @@
 import heroAvif from "../assets/portraits/fenil-hero.avif";
 import heroWebp from "../assets/portraits/fenil-hero.webp";
 import heroJpg from "../assets/portraits/fenil-hero.jpg";
-import secondaryAvif from "../assets/portraits/fenil-secondary.avif";
-import secondaryWebp from "../assets/portraits/fenil-secondary.webp";
-import secondaryJpg from "../assets/portraits/fenil-secondary.jpg";
+import arthakramGroup from "../assets/portraits/arthakram-group.jpg";
 import atmosphericAvif from "../assets/portraits/fenil-atmospheric.avif";
 import atmosphericWebp from "../assets/portraits/fenil-atmospheric.webp";
 import atmosphericJpg from "../assets/portraits/fenil-atmospheric.jpg";
@@ -22,9 +20,9 @@ export const portraits = {
     fallback: heroJpg
   },
   secondary: {
-    avif: secondaryAvif,
-    webp: secondaryWebp,
-    fallback: secondaryJpg
+    avif: arthakramGroup,
+    webp: arthakramGroup,
+    fallback: arthakramGroup
   },
   atmospheric: {
     avif: atmosphericAvif,

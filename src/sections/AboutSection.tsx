@@ -17,16 +17,33 @@ export function AboutSection() {
 
           <div className="story-copy" data-gsap-reveal>
             <p>
-              My family runs an FMCG distribution business. Before I ever opened a
-              product management textbook, I watched SKUs pile up because a dealer
-              missed a delivery window. I saw what happens when the last mile breaks.
-              That is not theory. That is a scar.
+              I grew up watching supply chains break
             </p>
+            <br></br>
             <p>
-              I started The Autopsy because I noticed something: everyone talks about
-              what makes products succeed. Nobody talks honestly about why they die. I
-              do. Every Tuesday. In public. Because building in public forces you to be
-              right, or be corrected fast.
+              Family runs FMCG distribution. I knew which leg of the chain
+              bled cash before I knew what a P&L was. That gap is what
+              made me a builder.
+            </p>
+            <br></br>
+            <p>
+              I don't start with tech. I start with what's broken.
+            </p>
+            <br></br>
+            <p>
+              Built Startup-Info — 15 E-Cell members use it, zero marketing.
+Top 5 at IIT Roorkee. Finalist at Mind the Product.
+I run The Autopsy — weekly teardowns of products that failed.
+            </p>
+            <br></br>
+            <p>
+              First-year CS (AI/ML) student moving like I'm already 
+two years behind schedule.
+            </p>
+            <br></br>
+            <p>
+              Looking for a PM role or Founder's Office where I can own 
+a problem end to end.
             </p>
           </div>
         </div>
