@@ -25,7 +25,14 @@ function GalaxyNode({ skill, index }: { skill: SkillPoint; index: number }) {
     mesh.current.scale.setScalar((hovered ? 1.2 : 1) + pulse);
   });
 
-  const color = skill.group === "Product" ? "#C4432A" : skill.group === "Tech" ? "#72F2FF" : "#F7F5F0";
+  const color =
+    skill.group === "Product"
+      ? "#C4432A"
+      : skill.group === "Tech"
+      ? "#72F2FF"
+      : skill.group === "Tools"
+      ? "#E5A93C"
+      : "#C084FC";
 
   return (
     <group position={skill.position}>

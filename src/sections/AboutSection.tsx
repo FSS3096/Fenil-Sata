@@ -31,9 +31,10 @@ export function AboutSection() {
             </p>
             <br></br>
             <p>
-              Built Startup-Info — 15 E-Cell members use it, zero marketing.
-Top 5 at IIT Roorkee. Finalist at Mind the Product.
-I run The Autopsy — weekly teardowns of products that failed.
+              Built Startup-Info — 30+ E-Cell members use it, zero marketing.
+              Built The Product Guys with 600+ visitors.
+              2nd at BITS Pilani, 3rd in Global Circuit Hackathon, Top 5 at IIT Roorkee.
+              I run The Autopsy — weekly teardowns of products that failed.
             </p>
             <br></br>
             <p>

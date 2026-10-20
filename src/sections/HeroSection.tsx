@@ -39,7 +39,7 @@ export function HeroSection() {
               Fenil Sata builds things that <span>matter.</span>
             </h1>
             <p className="hero-lede">
-              First-year CS student. Two live products. Three competition podiums.
+              Second-year CS student. Live products reaching 600+ users. National competition podiums.
               One weekly series on why companies die.
             </p>
             <div className="hero-actions">
