@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { proofMetrics } from "../data/portfolio";
 import { revealUp, revealViewport, staggerContainer } from "../lib/motion";
 
-export function ProofWall() {
+export function ProofSection() {
   return (
     <section className="section proof-section" id="proof">
       <motion.div
@@ -22,3 +22,6 @@ export function ProofWall() {
     </section>
   );
 }
+
+// Backward-compatible alias
+export const ProofWall = ProofSection;

@@ -1,7 +1,7 @@
 import { ImageSet } from "../data/portfolio";
 
 type OptimizedPictureProps = {
-  image: ImageSet;
+  image: ImageSet | string;
   alt: string;
   className?: string;
   loading?: "eager" | "lazy";
@@ -13,11 +13,22 @@ export function OptimizedPicture({
   className = "",
   loading = "lazy"
 }: OptimizedPictureProps) {
+  if (typeof image === "string") {
+    return <img className={className} src={image} alt={alt} loading={loading} />;
+  }
+
+  const { avif, webp, fallback } = image;
+  const hasSources = Boolean(avif || (webp && webp !== fallback));
+
+  if (!hasSources) {
+    return <img className={className} src={fallback} alt={alt} loading={loading} />;
+  }
+
   return (
     <picture>
-      <source srcSet={image.avif} type="image/avif" />
-      <source srcSet={image.webp} type="image/webp" />
-      <img className={className} src={image.fallback} alt={alt} loading={loading} />
+      {avif ? <source srcSet={avif} type="image/avif" /> : null}
+      {webp ? <source srcSet={webp} type="image/webp" /> : null}
+      <img className={className} src={fallback} alt={alt} loading={loading} />
     </picture>
   );
 }

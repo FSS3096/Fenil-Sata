@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { GlassPanel } from "../components/GlassPanel";
 import { SectionHeader } from "../components/SectionHeader";
-import { ArthakramScene } from "../scenes/ArthakramScene";
+import { PORScene } from "../scenes/PORScene";
 import { porList } from "../data/portfolio";
 
 export function PORSection() {
@@ -61,7 +61,10 @@ export function PORSection() {
         </GlassPanel>
 
         <div className="por-visual">
-          <ArthakramScene />
+          <PORScene
+            key={activeIdx === 1 ? "arthakram" : "ecell"}
+            org={activeIdx === 1 ? "arthakram" : "ecell"}
+          />
         </div>
       </div>
     </section>

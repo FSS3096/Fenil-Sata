@@ -4,7 +4,7 @@ import { AutopsySection } from "./sections/AutopsySection";
 import { PORSection } from "./sections/PORSection";
 import { ContactSection } from "./sections/ContactSection";
 import { HeroSection } from "./sections/HeroSection";
-import { ProofWall } from "./sections/ProofWall";
+import { ProofSection } from "./sections/ProofSection";
 import { ProjectsSection } from "./sections/ProjectsSection";
 import { SkillsSection } from "./sections/SkillsSection";
 import { WinsSection } from "./sections/WinsSection";
@@ -20,7 +20,7 @@ export default function App() {
   return (
     <div ref={appRef} className="app-shell">
       <HeroSection />
-      <ProofWall />
+      <ProofSection />
       <AboutSection />
       <PORSection />
       <SkillsSection />

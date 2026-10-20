@@ -1,33 +1,25 @@
-import heroAvif from "../assets/portraits/fenil-hero.avif";
-import heroWebp from "../assets/portraits/fenil-hero.webp";
-import heroJpg from "../assets/portraits/fenil-hero.jpg";
-import arthakramGroup from "../assets/portraits/arthakram-group.jpg";
-import atmosphericAvif from "../assets/portraits/fenil-atmospheric.avif";
-import atmosphericWebp from "../assets/portraits/fenil-atmospheric.webp";
-import atmosphericJpg from "../assets/portraits/fenil-atmospheric.jpg";
+import fenilPortrait from "../assets/portraits/fenil-portrait.webp";
+import arthakramTeam from "../assets/team/arthakram-team.jpg";
+import autopsyInfographic from "../assets/autopsy/autopsy-teardown-infographic.webp";
 import startupInfoImg from "../assets/projects/startup-info.png";
 
 export type ImageSet = {
-  avif: string;
-  webp: string;
+  avif?: string;
+  webp?: string;
   fallback: string;
 };
 
 export const portraits = {
   hero: {
-    avif: heroAvif,
-    webp: heroWebp,
-    fallback: heroJpg
+    webp: fenilPortrait,
+    fallback: fenilPortrait
   },
   secondary: {
-    avif: arthakramGroup,
-    webp: arthakramGroup,
-    fallback: arthakramGroup
+    fallback: arthakramTeam
   },
   atmospheric: {
-    avif: atmosphericAvif,
-    webp: atmosphericWebp,
-    fallback: atmosphericJpg
+    webp: autopsyInfographic,
+    fallback: autopsyInfographic
   }
 } satisfies Record<string, ImageSet>;
 
