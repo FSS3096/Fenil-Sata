@@ -215,18 +215,6 @@ export const projects = [
     liveUrl: links.minimalist,
     repoUrl: ""
   },
-  {
-    title: "India UCO Biofuel Opportunity — For Renewlium",
-    eyebrow: "Market research and policy thesis",
-    year: "Apr 2026",
-    description:
-      "Mapped a USD 356.7M market, 60-70% informal leakage of annual UCO, RUCO policy tailwinds, and city prioritization across Maharashtra, Delhi NCR, and Tamil Nadu.",
-    impact: "Framed a three-scenario strategic outlook through 2030.",
-    tags: ["Market Sizing", "Policy", "Unit Economics", "2030 Outlook"],
-    actionLabel: "Read research",
-    liveUrl: links.ucoResearch,
-    repoUrl: ""
-  }
 ];
 
 export const autopsyItems = [

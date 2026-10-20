@@ -9,7 +9,7 @@ export function ProjectsSection() {
     <section className="section projects-section" id="work">
       <SectionHeader
         index="05"
-        label="Projects / Product Research"
+        label="Projects"
         title="Shipped tools, research memos, and product arguments with teeth."
         copy="The original mockup's projects become kinetic evidence cards: each one ties a problem, a product decision, and a measurable signal."
       />
