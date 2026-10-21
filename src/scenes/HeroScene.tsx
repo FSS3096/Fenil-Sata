@@ -5,6 +5,7 @@ import * as THREE from "three";
 import { useMemo, useRef } from "react";
 import { hologramFragmentShader, hologramVertexShader } from "../shaders/hologram";
 import { usePrefersReducedMotion } from "../hooks/usePrefersReducedMotion";
+import { useInView } from "../hooks/useInView";
 
 function ParticleField({ count }: { count: number }) {
   const points = useRef<THREE.Points>(null);
@@ -116,22 +117,27 @@ function SceneObjects({ reduced }: { reduced: boolean }) {
 
 export function HeroScene() {
   const reduced = usePrefersReducedMotion();
+  const containerRef = useRef<HTMLDivElement>(null);
+  const isInView = useInView(containerRef, "200px");
 
   return (
-    <Canvas
-      className="hero-canvas"
-      dpr={[1, 1.65]}
-      camera={{ position: [0, 0, 6], fov: 43 }}
-      gl={{ antialias: true, alpha: true, powerPreference: "high-performance" }}
-    >
-      <SceneObjects reduced={reduced} />
-      {!reduced ? (
-        <EffectComposer>
-          <Bloom intensity={0.55} luminanceThreshold={0.2} luminanceSmoothing={0.55} />
-          <Vignette eskil={false} offset={0.18} darkness={0.78} />
-        </EffectComposer>
-      ) : null}
-      <Preload all />
-    </Canvas>
+    <div ref={containerRef} className="hero-canvas-wrapper" style={{ position: "absolute", inset: 0 }}>
+      <Canvas
+        className="hero-canvas"
+        frameloop={isInView ? "always" : "never"}
+        dpr={typeof window !== "undefined" && window.innerWidth < 768 ? [1, 1.25] : [1, 1.5]}
+        camera={{ position: [0, 0, 6], fov: 43 }}
+        gl={{ antialias: true, alpha: true, powerPreference: "high-performance" }}
+      >
+        <SceneObjects reduced={reduced} />
+        {!reduced ? (
+          <EffectComposer>
+            <Bloom intensity={0.45} luminanceThreshold={0.25} luminanceSmoothing={0.6} />
+            <Vignette eskil={false} offset={0.18} darkness={0.78} />
+          </EffectComposer>
+        ) : null}
+        <Preload all />
+      </Canvas>
+    </div>
   );
 }

@@ -418,11 +418,13 @@ img {
       rgba(255, 255, 255, 0.09),
       rgba(255, 255, 255, 0.035)
     ),
-    rgba(5, 6, 8, 0.44);
+    rgba(5, 6, 8, 0.58);
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.08),
     0 24px 70px rgba(0, 0, 0, 0.28);
-  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  transform: translateZ(0);
 }
 
 .proof-card {

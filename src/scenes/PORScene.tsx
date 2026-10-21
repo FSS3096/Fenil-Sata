@@ -4,6 +4,7 @@ import { EffectComposer, Bloom } from "@react-three/postprocessing";
 import * as THREE from "three";
 import { useMemo, useRef } from "react";
 import { usePrefersReducedMotion } from "../hooks/usePrefersReducedMotion";
+import { useInView } from "../hooks/useInView";
 import ecellLogo from "../assets/logos/ecell-logo.png";
 import arthakramLogo from "../assets/logos/arthakram-logo.png";
 
@@ -147,11 +148,14 @@ function SceneContent({
 
 export function PORScene({ org = "ecell" }: { org?: "ecell" | "arthakram" }) {
   const reduced = usePrefersReducedMotion();
+  const containerRef = useRef<HTMLDivElement>(null);
+  const isInView = useInView(containerRef, "150px");
 
   return (
-    <div className="por-scene arthakram-scene">
+    <div ref={containerRef} className="por-scene arthakram-scene">
       <Canvas
-        dpr={[1, 1.5]}
+        frameloop={isInView ? "always" : "never"}
+        dpr={typeof window !== "undefined" && window.innerWidth < 768 ? [1, 1.25] : [1, 1.4]}
         camera={{ position: [0, 0, 4.2], fov: 46 }}
         gl={{
           antialias: true,
@@ -163,8 +167,8 @@ export function PORScene({ org = "ecell" }: { org?: "ecell" | "arthakram" }) {
         {!reduced ? (
           <EffectComposer>
             <Bloom
-              intensity={0.4}
-              luminanceThreshold={0.3}
+              intensity={0.35}
+              luminanceThreshold={0.35}
               luminanceSmoothing={0.5}
             />
           </EffectComposer>

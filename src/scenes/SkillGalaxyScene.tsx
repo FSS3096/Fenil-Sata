@@ -4,6 +4,7 @@ import { useMemo, useRef, useState } from "react";
 import * as THREE from "three";
 import { skills } from "../data/portfolio";
 import { usePrefersReducedMotion } from "../hooks/usePrefersReducedMotion";
+import { useInView } from "../hooks/useInView";
 
 type SkillPoint = {
   label: string;
@@ -115,11 +116,14 @@ function Galaxy({ reduced }: { reduced: boolean }) {
 
 export function SkillGalaxyScene() {
   const reduced = usePrefersReducedMotion();
+  const containerRef = useRef<HTMLDivElement>(null);
+  const isInView = useInView(containerRef, "150px");
 
   return (
-    <div className="skill-galaxy">
+    <div ref={containerRef} className="skill-galaxy">
       <Canvas
-        dpr={[1, 1.5]}
+        frameloop={isInView ? "always" : "never"}
+        dpr={typeof window !== "undefined" && window.innerWidth < 768 ? [1, 1.25] : [1, 1.4]}
         camera={{ position: [0, 0, 5], fov: 48 }}
         gl={{ antialias: true, alpha: true, powerPreference: "high-performance" }}
       >

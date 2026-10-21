@@ -1,31 +1,40 @@
 import { useEffect } from "react";
 import Lenis from "lenis";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 export function useLenis() {
   useEffect(() => {
-    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const isTouchDevice = "ontouchstart" in window || navigator.maxTouchPoints > 0;
 
-    if (reduceMotion.matches) {
+    // Use native smooth scrolling on reduced-motion or mobile touch devices
+    if (reduceMotion || isTouchDevice) {
       return;
     }
 
     const lenis = new Lenis({
-      lerp: 0.075,
+      lerp: 0.12, // Responsive, snappy lerp without the heavy lag
       smoothWheel: true,
-      wheelMultiplier: 0.9
+      wheelMultiplier: 1.0,
+      touchMultiplier: 1.0,
+      infinite: false
     });
 
-    let frame = 0;
-    const raf = (time: number) => {
-      lenis.raf(time);
-      frame = requestAnimationFrame(raf);
+    // Synchronize Lenis with GSAP ScrollTrigger
+    lenis.on("scroll", ScrollTrigger.update);
+
+    const updateLenis = (time: number) => {
+      lenis.raf(time * 1000);
     };
 
-    frame = requestAnimationFrame(raf);
+    gsap.ticker.add(updateLenis);
+    gsap.ticker.lagSmoothing(0);
 
     return () => {
-      cancelAnimationFrame(frame);
+      gsap.ticker.remove(updateLenis);
       lenis.destroy();
     };
   }, []);
 }
+
