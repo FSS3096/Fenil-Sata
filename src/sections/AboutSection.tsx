@@ -38,7 +38,7 @@ export function AboutSection() {
             </p>
             <br></br>
             <p>
-              First-year CS (AI/ML) student moving like I'm already 
+              Second-year CS (AI/ML) student moving like I'm already 
 two years behind schedule.
             </p>
             <br></br>

@@ -83,10 +83,10 @@ export const timeline = [
   },
   {
     year: "2025 – 2026",
-    title: "6+ National Competitions & Hackathons",
+    title: "6+ National and International Competitions & Hackathons",
     detail:
       "Podiums and finalist across BITS Pilani (2nd Place), Global Circuit Hackathon (3rd Place), IIT Roorkee (Top 5 of 300), IIT Kanpur, IIT Delhi, NSUT, DU, and Ashoka.",
-    meta: "National Podiums"
+    meta: "National and International Podiums"
   }
 ];
 
