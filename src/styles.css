@@ -1642,6 +1642,148 @@ img {
   }
 }
 
+/* ── Mobile Responsive Enhancements (Phones & Small Screens) ── */
+@media (max-width: 768px) {
+  /* Prevent horizontal overflow on entire viewport */
+  body, .app-shell {
+    overflow-x: hidden;
+  }
+
+  /* Word break for long words, emails and titles */
+  h1, h2, h3, p, a, span {
+    overflow-wrap: break-word;
+    word-break: break-word;
+  }
+
+  /* POR section responsive adjustments */
+  .por-layout {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .por-details {
+    padding: 20px;
+    gap: 18px;
+  }
+
+  .por-role-header {
+    gap: 12px;
+  }
+
+  .por-role-header h3 {
+    font-size: 22px;
+  }
+
+  .por-selector {
+    gap: 10px;
+  }
+
+  .por-selector-btn {
+    flex: 1 1 calc(50% - 10px);
+    min-width: 140px;
+    padding: 10px 14px;
+  }
+
+  .por-selector-role {
+    font-size: 16px;
+  }
+
+  .arthakram-scene {
+    height: 300px;
+  }
+
+  /* About section floating image */
+  .floating-image-card {
+    width: 85%;
+    margin: 16px auto 0;
+    transform: rotate(0deg);
+  }
+
+  /* Contact socials on mobile */
+  .contact-socials a {
+    word-break: break-all;
+    font-size: 13px;
+  }
+
+  /* Top nav backdrop for readability on small devices */
+  .top-nav {
+    position: relative;
+    z-index: 10;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Allow 3D canvas and skill galaxy not to block vertical scrolling on mobile */
+  .hero-canvas,
+  .skill-galaxy canvas,
+  .arthakram-scene canvas {
+    touch-action: pan-y;
+  }
+
+  .top-nav {
+    padding: 0 4px;
+  }
+
+  .nav-links {
+    gap: 12px;
+    font-size: 13px;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .hero-actions .magnetic-button {
+    width: 100%;
+  }
+
+  .por-selector-btn {
+    flex: 1 1 100%;
+    width: 100%;
+  }
+
+  .por-contribution-item {
+    grid-template-columns: 8px 1fr;
+    gap: 10px;
+  }
+
+  .por-tags span {
+    padding: 5px 10px;
+    font-size: 11px;
+  }
+
+  .arthakram-scene {
+    height: 260px;
+  }
+
+  .floating-image-card {
+    width: 100%;
+  }
+
+  .project-actions {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+  }
+
+  .project-actions .magnetic-button {
+    width: 100%;
+  }
+
+  .portrait-orbit {
+    width: 100%;
+    max-width: 320px;
+    margin: 0 auto;
+  }
+
+  .portrait-frame,
+  .portrait-img {
+    min-height: 280px;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
