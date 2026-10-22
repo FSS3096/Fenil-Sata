@@ -18,12 +18,13 @@ export function ContactSection() {
     message: ""
   });
   const [status, setStatus] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const update = (key: keyof FormState, value: string) => {
     setForm((current) => ({ ...current, [key]: value }));
   };
 
-  const submit = (event: FormEvent<HTMLFormElement>) => {
+  const submit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
     if (!form.name.trim() || !form.email.trim() || !form.message.trim()) {
@@ -31,13 +32,52 @@ export function ContactSection() {
       return;
     }
 
-    const subject = encodeURIComponent(`Portfolio inquiry from ${form.name}`);
-    const body = encodeURIComponent(
-      `Name: ${form.name}\nEmail: ${form.email}\n\n${form.message}`
-    );
+    const accessKey = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY;
 
-    setStatus("Opening your email client.");
-    window.location.href = `mailto:${links.email}?subject=${subject}&body=${body}`;
+    // Fallback to mailto if access key is not yet configured
+    if (!accessKey) {
+      const subject = encodeURIComponent(`Portfolio inquiry from ${form.name}`);
+      const body = encodeURIComponent(
+        `Name: ${form.name}\nEmail: ${form.email}\n\n${form.message}`
+      );
+      setStatus("Opening your email client...");
+      window.location.href = `mailto:${links.email}?subject=${subject}&body=${body}`;
+      return;
+    }
+
+    setIsSubmitting(true);
+    setStatus("Transmitting signal...");
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json"
+        },
+        body: JSON.stringify({
+          access_key: accessKey,
+          name: form.name,
+          email: form.email,
+          message: form.message,
+          subject: `Portfolio Message from ${form.name}`,
+          from_name: "Fenil Sata Portfolio"
+        })
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        setStatus("Signal received! I will get back to you shortly.");
+        setForm({ name: "", email: "", message: "" });
+      } else {
+        setStatus(result.message || "Something went wrong. Please try again or email directly.");
+      }
+    } catch {
+      setStatus("Network error. Please email directly at " + links.email);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -95,8 +135,8 @@ export function ContactSection() {
               rows={5}
             />
           </label>
-          <MagneticButton type="submit" showArrow>
-            Send signal
+          <MagneticButton type="submit" showArrow={!isSubmitting} disabled={isSubmitting}>
+            {isSubmitting ? "Transmitting..." : "Send signal"}
           </MagneticButton>
           {status ? <p className="form-status">{status}</p> : null}
         </GlassPanel>
