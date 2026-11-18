@@ -13,11 +13,11 @@ export function PORSection() {
       <SectionHeader
         index="03"
         label="Position of Responsibility"
-        title="Not just participating — owning the room."
-        copy="Leadership forged through cross-functional execution at the Chief of Staff level, startup mentoring, product teardowns, and consulting frameworks."
+        title="Not just participating. Owning the room."
+        copy="Chief of Staff execution, startup mentoring, product teardowns, and consulting frameworks."
       />
 
-      <div className="por-selector" data-gsap-reveal>
+      <div className="por-selector">
         {porList.map((por, idx) => (
           <button
             key={por.organization}
@@ -31,7 +31,7 @@ export function PORSection() {
         ))}
       </div>
 
-      <div className="por-layout" data-gsap-reveal>
+      <div className="por-layout">
         <GlassPanel className="por-details">
           <div className="por-role-header">
             <div className="por-badge">POR</div>

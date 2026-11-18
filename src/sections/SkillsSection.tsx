@@ -17,15 +17,15 @@ export function SkillsSection() {
         index="04"
         label="Skills Galaxy"
         title="A product brain with enough technical gravity to ship."
-        copy="The skill system is treated like a galaxy: product strategy at the center, engineering and tools in orbit, leadership as the force that keeps teams moving."
+        copy="Product strategy at the center, engineering and tools in orbit, and communication as the force that keeps a team moving."
       />
 
       <div className="skills-layout">
-        <GlassPanel className="skills-copy" data-gsap-reveal>
+        <GlassPanel className="skills-copy">
           {groups.map((group) => (
             <div key={group}>
               <h3>{group}</h3>
-              <div className="skill-chip-row">
+              <div className="skill-chip-row" data-stagger="pop">
                 {skills
                   .filter((skill) => skill.group === group)
                   .map((skill) => (
@@ -36,7 +36,7 @@ export function SkillsSection() {
           ))}
         </GlassPanel>
 
-        <div data-gsap-reveal>
+        <div>
           <Suspense fallback={<div className="skill-galaxy skill-galaxy-fallback" />}>
             <SkillGalaxyScene />
           </Suspense>

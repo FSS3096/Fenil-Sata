@@ -117,10 +117,10 @@ function SceneContent({
 }) {
   const isArthakram = org === "arthakram";
   const primaryLightColor = isArthakram ? "#EA580C" : "#6366F1";
-  const secondaryLightColor = isArthakram ? "#FFAA40" : "#72F2FF";
-  const particleColor = isArthakram ? "#F97316" : "#72F2FF";
+  const secondaryLightColor = isArthakram ? "#FFAA40" : "#8FA2FF";
+  const particleColor = isArthakram ? "#F97316" : "#8FA2FF";
   const ring1Color = isArthakram ? "#ea580c" : "#4338CA";
-  const ring2Color = isArthakram ? "#c4432a" : "#1a5967";
+  const ring2Color = isArthakram ? "#FFE24A" : "#2340FF";
 
   return (
     <>
