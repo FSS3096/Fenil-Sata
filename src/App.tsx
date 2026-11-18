@@ -8,6 +8,7 @@ import { ProofSection } from "./sections/ProofSection";
 import { ProjectsSection } from "./sections/ProjectsSection";
 import { SkillsSection } from "./sections/SkillsSection";
 import { WinsSection } from "./sections/WinsSection";
+import { ScrollProgress } from "./components/ScrollProgress";
 import { useLenis } from "./hooks/useLenis";
 import { useScrollAnimations } from "./hooks/useScrollAnimations";
 
@@ -19,6 +20,7 @@ export default function App() {
 
   return (
     <div ref={appRef} className="app-shell">
+      <ScrollProgress />
       <HeroSection />
       <ProofSection />
       <AboutSection />

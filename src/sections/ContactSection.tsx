@@ -90,7 +90,7 @@ export function ContactSection() {
             title="If something I built or wrote made you think, let's talk."
             copy="Founder-office roles, product internships, research collaborations, and sharp product conversations are welcome."
           />
-          <div className="contact-socials" data-gsap-reveal>
+          <div className="contact-socials">
             <a href={`mailto:${links.email}`}>
               <Mail size={18} aria-hidden />
               {links.email}
@@ -106,7 +106,7 @@ export function ContactSection() {
           </div>
         </div>
 
-        <GlassPanel as="form" className="contact-form" onSubmit={submit} data-gsap-reveal>
+        <GlassPanel as="form" className="contact-form" onSubmit={submit}>
           <label>
             Name
             <input

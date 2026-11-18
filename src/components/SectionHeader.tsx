@@ -1,26 +1,29 @@
+import { Fragment } from "react";
+
 type SectionHeaderProps = {
-  index: string;
-  label: string;
+  /** Kept for call-site readability; sections are identified by their headline instead. */
+  index?: string;
+  label?: string;
   title: string;
   copy?: string;
-  invert?: boolean;
 };
 
-export function SectionHeader({
-  index,
-  label,
-  title,
-  copy,
-  invert = false
-}: SectionHeaderProps) {
+export function SectionHeader({ title, copy }: SectionHeaderProps) {
   return (
-    <div className="section-header" data-gsap-reveal>
-      <div className="section-kicker">
-        <span>{index}</span>
-        <span>{label}</span>
-      </div>
-      <h2 className={invert ? "text-ivory" : "text-ivory"}>{title}</h2>
-      {copy ? <p>{copy}</p> : null}
+    <div className="section-header">
+      {/* Words are wrapped so the scroll engine can lift each one out of a mask. */}
+      <h2 data-words aria-label={title}>
+        {title.split(" ").map((word, position) => (
+          <Fragment key={`${word}-${position}`}>
+            <b className="word" aria-hidden="true">
+              <b>{word}</b>
+            </b>{" "}
+          </Fragment>
+        ))}
+      </h2>
+      {copy ? (
+        <p>{copy}</p>
+      ) : null}
     </div>
   );
 }

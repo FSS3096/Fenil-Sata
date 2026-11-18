@@ -1,7 +1,6 @@
 import { GlassPanel } from "../components/GlassPanel";
 import { MagneticButton } from "../components/MagneticButton";
 import { SectionHeader } from "../components/SectionHeader";
-import { TiltCard } from "../components/TiltCard";
 import { projects } from "../data/portfolio";
 
 export function ProjectsSection() {
@@ -11,15 +10,18 @@ export function ProjectsSection() {
         index="05"
         label="Projects"
         title="Shipped tools, research memos, and product arguments with teeth."
-        copy="The original mockup's projects become kinetic evidence cards: each one ties a problem, a product decision, and a measurable signal."
+        copy="Each project ties a problem, a product decision, and a number that shows whether it worked."
       />
 
-      <div className="project-stack">
+      <div className="project-stack" data-stack>
         {projects.map((project, index) => (
-          <TiltCard className="project-tilt" key={project.title}>
+          <div
+            className="project-stick"
+            key={project.title}
+            style={{ "--i": index } as React.CSSProperties}
+          >
             <GlassPanel
               className={`project-card ${project.image ? "project-has-image" : ""}`}
-              data-gsap-reveal
             >
               <div className="project-index">0{index + 1}</div>
               <div>
@@ -61,7 +63,7 @@ export function ProjectsSection() {
                 </div>
               )}
             </GlassPanel>
-          </TiltCard>
+          </div>
         ))}
       </div>
     </section>

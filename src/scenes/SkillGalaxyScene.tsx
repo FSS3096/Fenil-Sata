@@ -28,9 +28,9 @@ function GalaxyNode({ skill, index }: { skill: SkillPoint; index: number }) {
 
   const color =
     skill.group === "Product"
-      ? "#C4432A"
+      ? "#FFE24A"
       : skill.group === "Tech"
-      ? "#72F2FF"
+      ? "#8FA2FF"
       : skill.group === "Tools"
       ? "#E5A93C"
       : "#C084FC";
@@ -97,8 +97,8 @@ function Galaxy({ reduced }: { reduced: boolean }) {
 
   return (
     <group ref={group}>
-      <pointLight color="#72F2FF" intensity={3.4} position={[0, 1.8, 2.4]} />
-      <pointLight color="#C4432A" intensity={2.6} position={[2.8, -1.6, 1.4]} />
+      <pointLight color="#8FA2FF" intensity={3.4} position={[0, 1.8, 2.4]} />
+      <pointLight color="#FFE24A" intensity={2.6} position={[2.8, -1.6, 1.4]} />
       <mesh>
         <torusGeometry args={[1.62, 0.004, 8, 180]} />
         <meshBasicMaterial color="#2c6670" transparent opacity={0.34} />
