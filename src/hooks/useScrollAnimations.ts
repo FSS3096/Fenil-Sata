@@ -18,6 +18,7 @@ gsap.registerPlugin(ScrollTrigger);
  *   data-card                   scroll-scrubbed depth entrance (scale / tilt / rise)
  *   data-drift="n"              element drifts n px while it crosses the viewport
  *   data-line                   element draws itself (scaleX) as it crosses the viewport
+ *   data-rise                   children grow upward from the baseline, one after another
  *   data-mark                   highlighter sweeps across the phrase as it is read
  *   data-fill                   a rail fills down as its card crosses the viewport
  *   data-stack                  children are sticky cards; each recedes as the next one arrives
@@ -162,6 +163,20 @@ export function useScrollAnimations(scope: RefObject<HTMLElement>) {
             { scale: 1, duration: 1.6, ease: "power3.out", scrollTrigger: once(element, "top 85%") }
           );
         }
+      });
+
+      all("[data-rise]").forEach((box) => {
+        gsap.fromTo(
+          Array.from(box.children),
+          { clipPath: "inset(100% 0% 0% 0%)" },
+          {
+            clipPath: "inset(0% 0% 0% 0%)",
+            duration: 1,
+            ease: "power3.out",
+            stagger: 0.18,
+            scrollTrigger: once(box, "top 85%")
+          }
+        );
       });
 
       all("[data-card]").forEach((card) => {
