@@ -32,11 +32,14 @@ export function ProjectsSection() {
                 <p>{project.description}</p>
                 <strong>{project.impact}</strong>
               </div>
-              <div className="project-tags">
-                {project.tags.map((tag) => (
-                  <span key={tag}>{tag}</span>
-                ))}
-              </div>
+              {/* With a screenshot the skills sit under the text; without one they fill the right column. */}
+              {project.image ? (
+                <div className="project-tags">
+                  {project.tags.map((tag) => (
+                    <span key={tag}>{tag}</span>
+                  ))}
+                </div>
+              ) : null}
               <div className="project-actions">
                 {project.liveUrl ? (
                   <MagneticButton
@@ -57,10 +60,19 @@ export function ProjectsSection() {
                   </MagneticButton>
                 ) : null}
               </div>
-              {project.image && (
+              {project.image ? (
                 <div className="project-image-container">
                   <img src={project.image} alt={project.title} />
                 </div>
+              ) : (
+                <aside className="project-skills" aria-label={`Skills used in ${project.title}`}>
+                  <h4>Skills used</h4>
+                  <ul>
+                    {project.tags.map((tag) => (
+                      <li key={tag}>{tag}</li>
+                    ))}
+                  </ul>
+                </aside>
               )}
             </GlassPanel>
           </div>
