@@ -965,6 +965,15 @@ h2 {
   top: calc(96px + var(--i) * 20px);
 }
 
+/* Cards grow down the stack (1 < 2 < 3) so each one covers the previous and still shows its own top edge. */
+@media (min-width: 1025px) {
+  .project-card {
+    min-height: calc(420px + var(--i, 0) * 80px);
+    /* keep rows packed at the top instead of stretching the extra height between them */
+    align-content: start;
+  }
+}
+
 .project-card {
   position: relative;
   display: grid;
