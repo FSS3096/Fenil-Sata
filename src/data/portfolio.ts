@@ -2,6 +2,8 @@ import fenilPortrait from "../assets/portraits/fenil-portrait.webp";
 import arthakramTeam from "../assets/team/arthakram-team.jpg";
 import autopsyInfographic from "../assets/autopsy/autopsy-teardown-infographic.webp";
 import startupInfoImg from "../assets/projects/startup-info.png";
+import minimalistImg from "../assets/projects/minimalist-breakdown.webp";
+import productGuysImg from "../assets/projects/product-guys.webp";
 
 export type ImageSet = {
   avif?: string;
@@ -201,7 +203,8 @@ export const projects = [
     tags: ["Product Management", "Teardowns", "Psychology Principles", "TypeScript", "Vercel"],
     actionLabel: "Live platform",
     liveUrl: links.productGuys,
-    repoUrl: ""
+    repoUrl: "",
+    image: productGuysImg
   },
   {
     title: "Company Breakdown — Minimalist",
@@ -213,7 +216,9 @@ export const projects = [
     tags: ["Market Research", "Unit Economics", "LTV:CAC", "Strategy"],
     actionLabel: "Read breakdown",
     liveUrl: links.minimalist,
-    repoUrl: ""
+    repoUrl: "",
+    // First page of the breakdown report
+    image: minimalistImg
   },
 ];
 
