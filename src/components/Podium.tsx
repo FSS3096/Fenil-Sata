@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 // Steps climb left to right. Heights follow placement, and every line is from the resume.
-const STEPS = [
+export const STEPS = [
   { rank: "Top 5", where: "IIT Roorkee", detail: "Of 300 teams at Investopedia, E'Summit 2026.", height: 52 },
   { rank: "3rd", where: "Global Circuit Hackathon", detail: "ECG signal intelligence, virtual hackathon.", height: 74 },
   { rank: "2nd", where: "BITS Pilani", detail: "The Desk, a live valuation game.", height: 100 }
