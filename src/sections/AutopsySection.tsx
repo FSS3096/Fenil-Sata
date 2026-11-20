@@ -33,6 +33,10 @@ export function AutopsySection() {
           <OptimizedPicture
             image={portraits.atmospheric}
             alt="Quibi and Byju's product failure infographic from The Autopsy series"
+            width={533}
+            height={1240}
+            loading="eager"
+            priority="low"
           />
         </div>
       </div>

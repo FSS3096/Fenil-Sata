@@ -144,25 +144,29 @@ export function useScrollAnimations(scope: RefObject<HTMLElement>) {
       });
 
       all("[data-clip]").forEach((element) => {
-        gsap.fromTo(
+        const image = element.querySelector("img");
+        const reveal = gsap.timeline({ paused: true });
+
+        reveal.fromTo(
           element,
           { clipPath: "inset(0% 100% 0% 0%)" },
-          {
-            clipPath: "inset(0% 0% 0% 0%)",
-            duration: 1.3,
-            ease: "power3.inOut",
-            scrollTrigger: once(element, "top 85%")
-          }
+          { clipPath: "inset(0% 0% 0% 0%)", duration: 1.3, ease: "power3.inOut" },
+          0
         );
-        const image = element.querySelector("img");
 
         if (image) {
-          gsap.fromTo(
-            image,
-            { scale: 1.25 },
-            { scale: 1, duration: 1.6, ease: "power3.out", scrollTrigger: once(element, "top 85%") }
-          );
+          reveal.fromTo(image, { scale: 1.25 }, { scale: 1, duration: 1.6, ease: "power3.out" }, 0);
         }
+
+        // Never wipe open an empty frame: wait until the picture has loaded and decoded.
+        ScrollTrigger.create({
+          ...once(element, "top 85%"),
+          onEnter: () => {
+            const ready = image && !image.complete ? image.decode() : Promise.resolve();
+
+            ready.catch(() => undefined).then(() => reveal.play());
+          }
+        });
       });
 
       all("[data-rise]").forEach((box) => {
